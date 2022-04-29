@@ -20,23 +20,23 @@ public class Client {
     @Column(name = "idclient", nullable = false)
     private Long idClient;
     @Column(name = "nom", nullable = false, length = 45)
-    private Long nomClient;
+    private String nomClient;
     @Column(name = "prenom", nullable = false, length = 45)
-    private Long prenomClient;
+    private String prenomClient;
     @Column(name = "rue", nullable = false, length = 45)
-    private Long rueClient;
+    private String rueClient;
     @Column(name = "numero", nullable = false, length = 45)
-    private Long numeroClient;
+    private String numeroClient;
     @Column(name = "cp", nullable = false, length = 45)
-    private Long cpClient;
+    private String cpClient;
     @Column(name = "adresse_mail", nullable = false, length = 200)
-    private Long mailClient;
+    private String mailClient;
     @Column(name = "date_naissance", nullable = false)
     private LocalDate dateNaissanceClient;
     @Column(name = "pays", nullable = false, length = 45)
-    private Long paysClient;
+    private String paysClient;
     @Column(name = "actif", nullable = false)
     private Integer actifClient;
     @Column(name = "num_tva", nullable = false, length = 45)
-    private Long numTVAClient;
+    private String numTVAClient;
 }
