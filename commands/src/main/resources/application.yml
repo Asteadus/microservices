@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:commands
+    username: user
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
