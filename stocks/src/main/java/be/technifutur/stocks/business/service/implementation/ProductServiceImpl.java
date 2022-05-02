@@ -20,6 +20,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository repository;
     private final ProductMapper mapper;
 
+    // CREATE
     @Override
     public ProductDTO addStockToProduct(UUID productReference, int newQuantity) {
         Product newStockForProduct = Product.builder()
@@ -30,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
         return this.mapper.entityToDTO(newStockForProduct);
     }
 
+    // READ ALL
     @Override
     public List<ProductDTO> getAllProducts() {
         return this.repository.findAll()
@@ -38,6 +40,7 @@ public class ProductServiceImpl implements ProductService {
                 .toList();
     }
 
+    // READ ONE BY STOCK ID
     @Override
     public ProductDTO getProductByStockId(Long id) {
         return this.repository.findById(id)
@@ -45,10 +48,22 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new ElementNotFoundException(id, ProductDTO.class));
     }
 
+    // READ ONE BY PRODUCT REFERENCE
     @Override
     public ProductDTO getProductByRef(UUID ref) {
         return this.repository.findByReference(ref)
                 .map(mapper::entityToDTO)
                 .orElseThrow(() -> new ElementNotFoundException(ref, ProductDTO.class));
+    }
+
+    // UPDATE
+    @Override
+    public ProductDTO updateProductQuantityByStockId(Long id, int updatedQuantity) {
+        Product entity = this.repository
+                .findById(id)
+                .orElseThrow(() -> new ElementNotFoundException(id, ProductDTO.class));
+        entity.setQuantity(updatedQuantity);
+        entity = repository.save(entity);
+        return mapper.entityToDTO(entity);
     }
 }
