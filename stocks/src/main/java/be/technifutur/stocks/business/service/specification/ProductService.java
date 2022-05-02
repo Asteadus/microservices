@@ -15,4 +15,6 @@ public interface ProductService {
     ProductDTO getProductByStockId(Long id);
     ProductDTO getProductByRef(UUID ref);
 
+    // UPDATE
+    ProductDTO updateProductQuantityByStockId(Long id, int quantity);
 }
