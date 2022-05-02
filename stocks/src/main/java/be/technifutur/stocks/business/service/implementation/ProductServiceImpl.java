@@ -3,6 +3,7 @@ package be.technifutur.stocks.business.service.implementation;
 import be.technifutur.stocks.business.mapper.ProductMapper;
 import be.technifutur.stocks.business.service.specification.ProductService;
 import be.technifutur.stocks.exception.ElementNotFoundException;
+import be.technifutur.stocks.exception.InvalidQuantityException;
 import be.technifutur.stocks.model.dto.ProductDTO;
 import be.technifutur.stocks.model.entity.Product;
 import be.technifutur.stocks.repository.ProductRepository;
@@ -20,8 +21,13 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper mapper;
 
     @Override
-    public ProductDTO addStockToProduct(UUID reference, int quantity) {
-        return null;
+    public ProductDTO addStockToProduct(UUID productReference, int newQuantity) {
+        Product newStockForProduct = Product.builder()
+                .reference(productReference)
+                .quantity(newQuantity)
+                .build();
+        newStockForProduct = this.repository.save(newStockForProduct);
+        return this.mapper.entityToDTO(newStockForProduct);
     }
 
     @Override
