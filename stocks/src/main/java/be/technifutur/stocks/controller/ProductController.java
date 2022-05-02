@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,7 +17,11 @@ public class ProductController {
 
     private final ProductService service;
 
-    // POST - http://localhost:8080/stocks/{id}
+    // POST - http://localhost:8080/stocks/add?reference&quantity
+    @PostMapping("/add")
+    public ResponseEntity<ProductDTO> addStockToProduct(@RequestParam UUID reference, @RequestParam int quantity) {
+        return ResponseEntity.ok(this.service.addStockToProduct(reference, quantity));
+    }
 
     // GET - http://localhost:8080/stocks
     @GetMapping
