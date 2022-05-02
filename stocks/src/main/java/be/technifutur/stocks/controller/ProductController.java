@@ -29,16 +29,22 @@ public class ProductController {
         return this.service.getAllProducts();
     }
 
-    // GET - http://localhost:8080/stocks/{id}
+    // GET - http://localhost:8080/stocks/id
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductByStockId(@PathVariable Long id) {
         return ResponseEntity.ok(this.service.getProductByStockId(id));
     }
 
-    // GET - http://localhost:8080/stocks/product?{ref}
+    // GET - http://localhost:8080/stocks/product?reference
     @GetMapping("/product")
-    public ResponseEntity<ProductDTO> getProductByRef(@RequestParam(name = "ref") UUID ref) {
-        return ResponseEntity.ok(this.service.getProductByRef(ref));
+    public ResponseEntity<ProductDTO> getProductByRef(@RequestParam(name = "ref") UUID reference) {
+        return ResponseEntity.ok(this.service.getProductByRef(reference));
+    }
+
+    // PUT - http://localhost:8080/stocks/id?quantity
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductDTO> updateProductStockByStockId(@PathVariable Long id, @RequestParam int quantity) {
+        return ResponseEntity.ok(this.service.updateProductQuantityByStockId(id, quantity));
     }
 
 }
