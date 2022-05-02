@@ -31,17 +31,17 @@ public class DatabaseFiller implements InitializingBean {
                 .build();
         productRepository.save(p1);
 
-        Product p3 = Product.builder()
+        Product p2 = Product.builder()
                 .reference(UUID.randomUUID())
                 .quantity(142)
                 .build();
-        productRepository.save(p3);
+        productRepository.save(p2);
 
-        Product p4 = Product.builder()
+        Product p3 = Product.builder()
                 .reference(UUID.randomUUID())
                 .quantity(0)
                 .build();
-        productRepository.save(p4);
+        productRepository.save(p3);
         // endregion
 
     }
