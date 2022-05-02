@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Component
@@ -26,13 +27,14 @@ public class DatabaseFiller  implements InitializingBean {
                 .numeroClient("10")
                 .cpClient("56922")
                 .mailClient("ed.balladur@rpr.fr")
-                .dateNaissanceClient(new SimpleDateFormat("dd-MM-yyyy").parse("08-08-1945"))
+                .dateNaissanceClient(LocalDate.of(1945,8,8))
                 .paysClient("France")
                 .actifClient(1)
                 .numTVAClient("")
                 .refClient(UUID.randomUUID())
                 .build();
         cRepo.save(c);
+        System.out.println(c.getRefClient());
 
         c = Client.builder()
                 .idClient(2L)
@@ -42,13 +44,14 @@ public class DatabaseFiller  implements InitializingBean {
                 .numeroClient("1")
                 .cpClient("55922")
                 .mailClient("cl.pompidou@gmail.com")
-                .dateNaissanceClient(new SimpleDateFormat("dd-MM-yyyy").parse("07-02-1915"))
+                .dateNaissanceClient(LocalDate.of(1915,02,07))
                 .paysClient("France")
                 .actifClient(1)
                 .numTVAClient("FR9854561066654")
                 .refClient(UUID.randomUUID())
                 .build();
         cRepo.save(c);
+        System.out.println(c.getRefClient());
     }
 
     @Override

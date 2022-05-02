@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commands/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/products/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stocks/src/main/java" charset="UTF-8" />
   </component>
 </project>
