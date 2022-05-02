@@ -21,27 +21,27 @@ public class ClientController {
         this.service = service;
     }
 
-//    // GET - http://localhost:8080/auteur
-//    //    @RequestMapping(method = RequestMethod.GET, path="/auteur")
+//    // GET - http://localhost:8080/client
+//    //    @RequestMapping(method = RequestMethod.GET, path="/client")
 //    @GetMapping("")
-//    public List<Auteur> getAll() {
+//    public List<Client> getAll() {
 //        return service.getAll();
 //    }
 
-    // GET - http://localhost:8080/auteur/id
+    // GET - http://localhost:8080/client/id
     //    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public String displayOne(@PathVariable Long id, Model model){
         Client c = service.getOne(id);
         model.addAttribute("client", c);
-        return "forms/client/clientidform";
+        return "forms/clientidform";
     }
 
     @PostMapping("/{id}")
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("client") ClientForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/client/clientform";
+            return "forms/clientform";
         Client rslt = service.update(form);
         return "redirect:/client/" + rslt.getIdClient();
     }
@@ -51,25 +51,25 @@ public class ClientController {
     public String displayAll(Model model){
         List<Client> list = service.getAll();
         model.addAttribute("client_liste", list);
-        return "pages/client/displayAllClient";
+        return "pages/displayAllClients";
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public String handle(NoSuchElementException ex){
-        return "pages/misc/404";
+        return "pages/404";
     }
 
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("client") ClientForm form){
-        return "forms/client/clientform";
+        return "forms/clientform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
-    public String processInsert(@Valid @ModelAttribute("auteur") ClientForm form, BindingResult binding){
+    public String processInsert(@Valid @ModelAttribute("client") ClientForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/client/clientform";
+            return "forms/clientform";
         Client rslt = service.insert(form);
         return "redirect:/client/" + rslt.getIdClient();
     }
@@ -77,12 +77,12 @@ public class ClientController {
     @GetMapping("/select")
 //    @PreAuthorize("isAuthenticated()")
     public String displaySelectForm(@ModelAttribute("client") ClientForm form){
-        return "forms/client/clientform";
+        return "forms/clientform";
     }
 
     @GetMapping("/update")
 //    @PreAuthorize("isAuthenticated()")
     public String displayUpdateForm(@ModelAttribute("client") ClientForm form){
-        return "forms/client/clientform";
+        return "forms/clientform";
     }
 }

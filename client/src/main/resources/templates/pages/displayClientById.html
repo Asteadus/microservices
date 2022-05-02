@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{/layout/layout :: layout(~{::content},~{::css},'headerClientById')}">
+<th:block th:object="${client}" th:fragment="content">
+  <h4 th:text="|Id               : ${client.idClient}|"></h4>
+  <p th:text="|Nom              : ${client.nomClient}|"></p>
+  <p th:text="|Prénom           : ${client.prenomClient}|"></p>
+  <p th:text="|Rue              : ${client.rueClient}|"></p>
+  <p th:text="|N°               : ${client.numeroClient}|"></p>
+  <p th:text="|Code postal      : ${client.cpClient}|"></p>
+  <p th:text="|Pays             : ${client.paysClient}|"></p>
+  <p th:text="|Email            : ${client.mailClient}|"></p>
+  <p th:text="|Date naissance   : ${client.dateNaissanceClient}|"></p>
+  <p th:text="|Client actif     : ${client.actifClient}|"></p>
+  <p th:text="|N° TVA           : ${client.numTVAClient}|"></p>
+  <p th:text="|Référence        : ${client.refClient}|"></p>
+</th:block>
+</html>

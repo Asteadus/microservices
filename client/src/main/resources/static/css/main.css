@@ -1,0 +1,16 @@
+header {
+    color: white;
+    background-color: rgb(0, 0, 128);
+}
+
+.nav_link:link{
+    color: yellow;
+}
+
+.nav_link:visited{
+    color: red;
+}
+
+body {
+    background-color: wheat;
+}

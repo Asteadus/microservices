@@ -3,7 +3,8 @@ package be.technifutur.client.models;
 import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.UUID;
 
 @Data
 public class ClientForm {
@@ -27,7 +28,7 @@ public class ClientForm {
     @Size(min=1, max=200)
     private String mailClient;
     @NotBlank(message="La date de naissance du client ne peut être vide !")
-    private LocalDate dateNaissanceClient;
+    private Date dateNaissanceClient;
     @NotBlank(message="Le pays du client ne peut être vide et ne pas doit dépasser 45 caractères !")
     @Size(min=1, max=45)
     private String paysClient;
@@ -36,4 +37,6 @@ public class ClientForm {
     @NotBlank(message="Le numero du client ne peut être vide et ne pas doit dépasser 45 caractères !")
     @Size(min=1, max=45)
     private String numTVAClient;
+    @NotBlank(message="La référence du client ne peut être vide !")
+    private UUID refClient;
 }

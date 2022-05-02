@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerAddClient')}">
+<th:block th:fragment="content">
+  <a href="/>client">    </a>
+  <form action="#" th:action="@{/client/add}" th:object="${client}" method="post">
+    <div class="mb-3">
+      <label for="input-nomclient" class="form-label">Nom</label>
+      <input type="text" id = "input-nomclient" class="form-control" th:field="*{nomClient}">
+      <p th:if="${#fields.hasErrors('nomClient')}" th:errors="*{nomClient}">Il y a des erreurs</p>
+      <p th:unless="${#fields.hasErrors('nomClient')}">Il n'y a pas d'erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-prenomclient" class="form-label">Prénom</label>
+      <input type="text" id = "input-prenomclient" class="form-control" th:field="*{prenomClient}">
+      <p th:if="${#fields.hasErrors('prenomClient')}" th:errors="*{prenomClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-rueclient" class="form-label">Rue</label>
+      <input type="text" id = "input-rueclient" class="form-control" th:field="*{rueClient}">
+      <p th:if="${#fields.hasErrors('rueClient')}" th:errors="*{rueClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-numeroclient" class="form-label">N°</label>
+      <input type="text" id = "input-numeroclient" class="form-control" th:field="*{numeroClient}">
+      <p th:if="${#fields.hasErrors('numeroClient')}" th:errors="*{numeroClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-codepostalclient" class="form-label">Code postal</label>
+      <input type="text" id = "input-codepostalclient" class="form-control" th:field="*{cpClient}">
+      <p th:if="${#fields.hasErrors('cpClient')}" th:errors="*{cpClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-mailclient" class="form-label">Email</label>
+      <input type="text" id = "input-mailclient" class="form-control" th:field="*{mailClient}">
+      <p th:if="${#fields.hasErrors('mailClient')}" th:errors="*{mailClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-datenaissanceclient" class="form-label">Date de naissance</label>
+      <input type="date" id = "input-datenaissanceclient" class="form-control" th:field="*{dateNaissanceClient}">
+      <p th:if="${#fields.hasErrors('dateNaissanceClient')}" th:errors="*{dateNaissanceClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-paysclient" class="form-label">Pays</label>
+      <input type="text" id = "input-paysclient" class="form-control" th:field="*{paysClient}">
+      <p th:if="${#fields.hasErrors('paysClient')}" th:errors="*{paysClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-actifClient" class="form-label">Actif</label>
+      <input type="number" id = "input-actifClient" class="form-control" th:field="*{actifClient}">
+      <p th:if="${#fields.hasErrors('actifClient')}" th:errors="*{actifClient}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-tvaclient" class="form-label">N° TVA</label>
+      <input type="text" id = "input-tvaclient" class="form-control" th:field="*{numTVAClient}">
+      <p th:if="${#fields.hasErrors('numTVAClient')}" th:errors="*{numTVAClient}">Il y a des erreurs</p>
+    </div>
+
+    <button type="submit" class="btn-btn-info">Ajouter</button>
+  </form>
+</th:block>
+

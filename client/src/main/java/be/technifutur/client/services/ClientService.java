@@ -4,10 +4,8 @@ import be.technifutur.client.models.Client;
 import be.technifutur.client.models.ClientForm;
 import be.technifutur.client.repositories.ClientRepository;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.Column;
-import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ClientService {
@@ -39,6 +37,7 @@ public class ClientService {
                 .paysClient(form.getPaysClient())
                 .actifClient(form.getActifClient())
                 .numTVAClient(form.getNumTVAClient())
+                .refClient(UUID.randomUUID())
                 .build();
         cRepo.save(client);
         return client;
@@ -57,6 +56,7 @@ public class ClientService {
                 .paysClient(form.getPaysClient())
                 .actifClient(form.getActifClient())
                 .numTVAClient(form.getNumTVAClient())
+                .refClient(form.getRefClient())
                 .build();
         cRepo.save(client);
         return client;

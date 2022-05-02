@@ -5,7 +5,9 @@ import be.technifutur.client.repositories.ClientRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 @Component
 public class DatabaseFiller  implements InitializingBean {
@@ -15,7 +17,7 @@ public class DatabaseFiller  implements InitializingBean {
         this.cRepo = cRepo;
     }
 
-    private void setupClient(){
+    private void setupClient() throws ParseException {
         Client c = Client.builder()
                 .idClient(1L)
                 .nomClient("Balladur")
@@ -23,11 +25,12 @@ public class DatabaseFiller  implements InitializingBean {
                 .rueClient("Rue de l'Elysée")
                 .numeroClient("10")
                 .cpClient("56922")
-                .mailClient("")
-                .dateNaissanceClient("08-08-1945")
+                .mailClient("ed.balladur@rpr.fr")
+                .dateNaissanceClient(new SimpleDateFormat("dd-MM-yyyy").parse("08-08-1945"))
                 .paysClient("France")
                 .actifClient(1)
                 .numTVAClient("")
+                .refClient(UUID.randomUUID())
                 .build();
         cRepo.save(c);
 
@@ -38,11 +41,12 @@ public class DatabaseFiller  implements InitializingBean {
                 .rueClient("Rue de Matignon")
                 .numeroClient("1")
                 .cpClient("55922")
-                .mailClient("")
-                .dateNaissanceClient("08-08-1945")
+                .mailClient("cl.pompidou@gmail.com")
+                .dateNaissanceClient(new SimpleDateFormat("dd-MM-yyyy").parse("07-02-1915"))
                 .paysClient("France")
                 .actifClient(1)
                 .numTVAClient("FR9854561066654")
+                .refClient(UUID.randomUUID())
                 .build();
         cRepo.save(c);
     }

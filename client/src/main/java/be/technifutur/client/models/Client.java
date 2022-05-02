@@ -5,7 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -32,11 +33,13 @@ public class Client {
     @Column(name = "adresse_mail", nullable = false, length = 200)
     private String mailClient;
     @Column(name = "date_naissance", nullable = false)
-    private LocalDate dateNaissanceClient;
+    private Date dateNaissanceClient;
     @Column(name = "pays", nullable = false, length = 45)
     private String paysClient;
     @Column(name = "actif", nullable = false)
     private Integer actifClient;
     @Column(name = "num_tva", nullable = false, length = 45)
     private String numTVAClient;
+    @Column(name = "refclient", nullable = false)
+    private UUID refClient;
 }
