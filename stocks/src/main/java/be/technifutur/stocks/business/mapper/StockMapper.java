@@ -1,20 +1,20 @@
 package be.technifutur.stocks.business.mapper;
 
-import be.technifutur.stocks.model.dto.ProductDTO;
-import be.technifutur.stocks.model.entity.Product;
+import be.technifutur.stocks.model.dto.StockDTO;
+import be.technifutur.stocks.model.entity.Stock;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductMapper {
+public class StockMapper {
 
-    public ProductDTO entityToDTO(Product entity) {
+    public StockDTO entityToDTO(Stock entity) {
         if (entity == null) {
             return null;
         }
 
-        return ProductDTO.builder()
+        return StockDTO.builder()
                 .stockId(entity.getStockId())
-                .reference(entity.getReference())
+                .productReference(entity.getProductReference())
                 .quantity(entity.getQuantity())
                 .build();
     }

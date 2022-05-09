@@ -8,3 +8,13 @@ spring:
     console:
       enabled: true
       path: /h2
+
+  rabbitmq:
+    host: 10.27.1.10
+    port: 5672
+    username: admin
+    password: admin
+
+rabbitmq:
+  listen-to: product_queue
+  exchange-name: microservice.direct

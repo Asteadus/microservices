@@ -12,14 +12,14 @@ import java.util.UUID;
 @Getter @Setter
 @Builder
 @Entity
-public class Product {
+public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stockId;
 
     @Column(nullable = false, unique = true)
-    private UUID reference;
+    private UUID productReference;
 
     @PositiveOrZero(message = "Quantity must be equal to or higher than zero")
     @Column(nullable = false)
