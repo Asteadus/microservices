@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class ClientController {
     private final ClientService service;
 
@@ -73,8 +73,9 @@ public class ClientController {
     }
 
     // GET - http://localhost:8080/user/reference?{ref}
-    @GetMapping("/{refClient}")
+    @GetMapping("/user")
     public ClientDto getClientByRef(@RequestParam(name = "ref") UUID ref) {
+        System.out.println(ref);
         return (this.service.getUserByRef(ref));
     }
 

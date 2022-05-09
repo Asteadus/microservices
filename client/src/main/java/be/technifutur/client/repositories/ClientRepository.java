@@ -6,5 +6,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    Optional <Client> findByReference(UUID reference);
+    Optional <Client> findByrefClient(UUID reference);
 }

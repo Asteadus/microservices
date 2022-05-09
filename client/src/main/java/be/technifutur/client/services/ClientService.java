@@ -26,7 +26,7 @@ public class ClientService {
     }
 
     public ClientDto getUserByRef(UUID ref){
-        return this.cRepo.findByReference(ref)
+        return this.cRepo.findByrefClient(ref)
                 .map(mapper::entity2Dto)
                 .orElseThrow(() -> new ElementNotFoundException(ref, ClientDto.class));
 
@@ -76,18 +76,18 @@ public class ClientService {
 
     public Client delete(ClientForm form){
         Client client = Client.builder()
-                .idClient(form.getIdClient())
-                .nomClient(form.getNomClient())
-                .prenomClient(form.getPrenomClient())
-                .rueClient(form.getRueClient())
-                .numeroClient(form.getNumeroClient())
-                .cpClient(form.getCpClient())
-                .mailClient(form.getMailClient())
-                .dateNaissanceClient(form.getDateNaissanceClient())
-                .paysClient(form.getPaysClient())
+//                .idClient(form.getIdClient())
+//                .nomClient(form.getNomClient())
+//                .prenomClient(form.getPrenomClient())
+//                .rueClient(form.getRueClient())
+//                .numeroClient(form.getNumeroClient())
+//                .cpClient(form.getCpClient())
+//                .mailClient(form.getMailClient())
+//                .dateNaissanceClient(form.getDateNaissanceClient())
+//                .paysClient(form.getPaysClient())
                 .actifClient(0)
-                .numTVAClient(form.getNumTVAClient())
-                .refClient(form.getRefClient())
+//                .numTVAClient(form.getNumTVAClient())
+//                .refClient(form.getRefClient())
                 .build();
         cRepo.save(client);
         return client;
