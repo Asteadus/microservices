@@ -26,6 +26,7 @@ public class DatabaseFiller  implements InitializingBean {
                 .rueClient("Rue de l'Elysée")
                 .numeroClient("10")
                 .cpClient("56922")
+                .villeClient("Paris")
                 .mailClient("ed.balladur@rpr.fr")
                 .dateNaissanceClient(LocalDate.of(1945,8,8))
                 .paysClient("France")
@@ -43,6 +44,7 @@ public class DatabaseFiller  implements InitializingBean {
                 .rueClient("Rue de Matignon")
                 .numeroClient("1")
                 .cpClient("55922")
+                .villeClient("Paris")
                 .mailClient("cl.pompidou@gmail.com")
                 .dateNaissanceClient(LocalDate.of(1915,02,07))
                 .paysClient("France")
@@ -58,5 +60,4 @@ public class DatabaseFiller  implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         setupClient();
     }
-
 }

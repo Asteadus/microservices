@@ -1,4 +1,4 @@
-package be.technifutur.client;
+package be.technifutur.client.rabbit;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

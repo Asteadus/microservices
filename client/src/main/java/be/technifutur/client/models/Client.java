@@ -31,6 +31,8 @@ public class Client {
     private String numeroClient;
     @Column(name = "cp", nullable = false, length = 45)
     private String cpClient;
+    @Column(name = "ville", nullable = false, length = 45)
+    private String villeClient;
     @Column(name = "adresse_mail", nullable = false, length = 200)
     private String mailClient;
     @Column(name = "date_naissance", nullable = false)

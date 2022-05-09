@@ -21,6 +21,7 @@ public class ClientMapper {
                 .rueClient(entity.getRueClient())
                 .numeroClient(entity.getNumeroClient())
                 .cpClient(entity.getCpClient())
+                .villeClient(entity.getVilleClient())
                 .mailClient(entity.getMailClient())
                 .dateNaissanceClient(entity.getDateNaissanceClient())
                 .paysClient(entity.getPaysClient())

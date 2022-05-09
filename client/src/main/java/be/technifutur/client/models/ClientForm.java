@@ -25,6 +25,9 @@ public class ClientForm {
     @NotBlank(message="Le code postal du client ne peut être vide et ne pas doit dépasser 45 caractères !")
     @Size(min=1, max=45)
     private String cpClient;
+    @NotBlank(message="La ville du client ne peut être vide et ne pas doit dépasser 45 caractères !")
+    @Size(min=1, max=45)
+    private String villeClient;
     @NotBlank(message="Le mail du client ne peut être vide et ne pas doit dépasser 200 caractères !")
     @Size(min=1, max=200)
     private String mailClient;

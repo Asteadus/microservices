@@ -13,6 +13,7 @@ public class ClientDto {
     private String rueClient;
     private String numeroClient;
     private String cpClient;
+    private String villeClient;
     private String mailClient;
     private LocalDate dateNaissanceClient;
     private String paysClient;
