@@ -2,6 +2,7 @@ package be.technifutur.products.metier.service;
 
 import be.technifutur.products.models.dto.ProductDTO;
 import be.technifutur.products.models.form.ProductForm;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface ProductService {
 
     public List<ProductDTO> getAllProducts();
 
-    public ProductDTO addProduct (ProductForm form);
+    public ProductDTO addProduct (ProductForm form) throws JsonProcessingException;
 
     public ProductDTO updateProductByID(Long id, ProductForm form);
 

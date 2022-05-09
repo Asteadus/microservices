@@ -3,9 +3,11 @@ package be.technifutur.products.utils;
 import be.technifutur.products.data.repositories.BrandRepository;
 import be.technifutur.products.data.repositories.CategoryRepository;
 import be.technifutur.products.data.repositories.ProductRepository;
+import be.technifutur.products.metier.service.ProductService;
 import be.technifutur.products.models.entities.Brand;
 import be.technifutur.products.models.entities.Category;
 import be.technifutur.products.models.entities.Product;
+import be.technifutur.products.models.form.ProductForm;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +19,13 @@ public class DataBaseFiller implements InitializingBean {
     private final ProductRepository productRepository;
     private final BrandRepository brandRepository;
     private final CategoryRepository categoryRepository;
+    private final ProductService service;
 
-    public DataBaseFiller(ProductRepository productRepository, BrandRepository brandRepository, CategoryRepository categoryRepository) {
+    public DataBaseFiller(ProductRepository productRepository, BrandRepository brandRepository, CategoryRepository categoryRepository, ProductService service) {
         this.productRepository = productRepository;
         this.brandRepository = brandRepository;
         this.categoryRepository = categoryRepository;
+        this.service = service;
     }
 
 
@@ -38,28 +42,38 @@ public class DataBaseFiller implements InitializingBean {
                 .build();
         categoryRepository.save(category);
 
-        Product product = Product.builder()
-                .name("XPS")
+        ProductForm productform = ProductForm.builder()
+                .name("test")
                 .buyingPrice(650)
                 .sellingPrice(850)
                 .onSale(true)
                 .brand(brand)
                 .category(category)
-                .uuid(UUID.randomUUID())
                 .build();
 
-        productRepository.save(product);
+        service.addProduct(productform);
 
-        product = Product.builder()
-                .name("Inspiron")
+        productform = ProductForm.builder()
+                .name("test2")
                 .buyingPrice(650)
                 .sellingPrice(850)
                 .onSale(true)
                 .brand(brand)
-                .uuid(UUID.randomUUID())
+                .category(category)
                 .build();
 
-        productRepository.save(product);
+        service.addProduct(productform);
+
+        productform = ProductForm.builder()
+                .name("test3")
+                .buyingPrice(650)
+                .sellingPrice(850)
+                .onSale(true)
+                .brand(brand)
+                .category(category)
+                .build();
+
+        service.addProduct(productform);
 
     }
 }

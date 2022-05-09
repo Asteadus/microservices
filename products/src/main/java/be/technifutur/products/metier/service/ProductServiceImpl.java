@@ -6,6 +6,9 @@ import be.technifutur.products.metier.mapper.ProductMapper;
 import be.technifutur.products.models.dto.ProductDTO;
 import be.technifutur.products.models.entities.Product;
 import be.technifutur.products.models.form.ProductForm;
+import be.technifutur.products.rabbit.MessageSender;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +18,14 @@ public class ProductServiceImpl implements ProductService{
 
     private final ProductMapper mapper;
     private final ProductRepository repo;
+    private final MessageSender sender;
+    private final ObjectMapper objectMapper;
 
-    public ProductServiceImpl(ProductMapper mapper, ProductRepository repo) {
+    public ProductServiceImpl(ProductMapper mapper, ProductRepository repo, MessageSender sender, ObjectMapper objectMapper) {
         this.mapper = mapper;
         this.repo = repo;
+        this.sender = sender;
+        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -32,11 +39,12 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductDTO addProduct(ProductForm form) {
+    public ProductDTO addProduct(ProductForm form) throws JsonProcessingException {
         Product p = mapper.formToEntity(form);
         p = repo.save(p);
-
-        return mapper.entityToDTO(p);
+        ProductDTO pDto = mapper.entityToDTO(p) ;
+        sender.productSender(objectMapper.writeValueAsString(pDto));
+        return pDto;
     }
 
     @Override

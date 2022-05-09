@@ -2,6 +2,7 @@ package be.technifutur.products.models.form;
 
 import be.technifutur.products.models.entities.Brand;
 import be.technifutur.products.models.entities.Category;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-@Validated @Data
+@Validated @Data @Builder
 public class ProductForm {
 
 
